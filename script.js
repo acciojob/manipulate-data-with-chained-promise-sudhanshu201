@@ -1,4 +1,3 @@
-//your JS code here. If required.
 function manipulateData(array) {
   return new Promise((resolve) => {
     setTimeout(() => {
@@ -28,4 +27,3 @@ manipulateData([1, 2, 3, 4])
     const output = document.getElementById("output");
     output.textContent = multipliedArray.join(", ");
   });
-
