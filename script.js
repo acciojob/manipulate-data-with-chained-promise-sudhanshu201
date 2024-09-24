@@ -2,7 +2,7 @@ function array(arr){
    return new Promise((resolve,reject)=>{
         setTimeout(() => {
             resolve(arr)
-        }, 500);
+        }, 3000);
     })
 }
 
@@ -16,7 +16,7 @@ let promise1 = (dataFromPromise1)=>{
                 }
             })
             resolve(odd)
-        }, 500);
+        }, 1000);
     })
 }
 
@@ -30,7 +30,7 @@ let promise2 = (dataFromPromise1)=>{
                 }
             })
             resolve(even)
-        }, 500);
+        }, 2000);
     })
 }
 
