@@ -28,7 +28,7 @@ let promise2 = (dataFromPromise1)=>{
                 }
             })
             resolve(even)
-        }, 2000);
+        }, 3000);
     })
 }
 
