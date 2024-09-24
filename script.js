@@ -1,29 +1,33 @@
-function manipulateData(array) {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(array);
-    }, 3000);
-  });
-}
+let myPromise1 = new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            resolve([1,2,3,4])
+        },3000)
+    })
 
-manipulateData([1, 2, 3, 4])
-  .then((array) => {
-    const filteredArray = array.filter((num) => num % 2 === 0);
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve(filteredArray);
-      }, 1000);
-    });
-  })
-  .then((filteredArray) => {
-    const multipliedArray = filteredArray.map((num) => num * 2);
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve(multipliedArray);
-      }, 2000);
-    });
-  })
-  .then((multipliedArray) => {
-    const output = document.getElementById("output");
-    output.textContent = multipliedArray.join(", ");
-  });
+myPromise1.then((res)=>{
+    //console.log(res)
+   
+    setTimeout(() => {
+        let filter1 = []
+   let oddNmbr =  res.map((data)=>{
+    if(data%2!=0){
+        filter1.push(data)
+    }
+    })
+    //console.log(filter1)
+    document.getElementById('output').innerHTML= `Odd numbers are - ${filter1}`
+    }, 1000);
+
+    setTimeout(() => {
+        //console.log("res2>>", res)
+       let filter2= []
+       let evenNumber = res.map((data)=>{
+        if(data%2==0){
+            filter2.push(data*2)
+        }
+       })
+       document.getElementById('output').innerHTML = `even numbers after multiply by 2 - ${filter2}`
+      // console.log(filter2)
+    }, 2000);
+  
+})
