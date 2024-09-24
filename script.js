@@ -1,33 +1,52 @@
-let myPromise1 = new Promise((resolve,reject)=>{
-        setTimeout(()=>{
-            resolve([1,2,3,4])
-        },3000)
+function array(arr){
+   return new Promise((resolve,reject)=>{
+        setTimeout(() => {
+            resolve(arr)
+        }, 3000);
     })
+}
 
-myPromise1.then((res)=>{
-    //console.log(res)
-   
-    setTimeout(() => {
-        let filter1 = []
-   let oddNmbr =  res.map((data)=>{
-    if(data%2!=0){
-        filter1.push(data)
-    }
+let promise1 = (dataFromPromise1)=>{
+   return new Promise((resolve,reject)=>{
+        let odd = []
+        setTimeout(() => {
+            dataFromPromise1.map((res)=>{
+                if(res%2!=0){
+                    odd.push(res)
+                }
+            })
+            resolve(odd)
+        }, 1000);
     })
-    //console.log(filter1)
-    document.getElementById('output').innerHTML= `Odd numbers are >>>  ${filter1}`
-    }, 1000);
+}
 
-    setTimeout(() => {
-        //console.log("res2>>", res)
-       let filter2= []
-       let evenNumber = res.map((data)=>{
-        if(data%2==0){
-            filter2.push(data*2)
-        }
-       })
-       document.getElementById('output').innerHTML = `even numbers after multiply by 2 >>> ${filter2}`
-      // console.log(filter2)
-    }, 3000);
-  
+let promise2 = (dataFromPromise1)=>{
+  return  new Promise((resolve,reject)=>{
+        let even = []
+        setTimeout(() => {
+            dataFromPromise1.map((res)=>{
+                if(res%2==0){
+                    even.push(res*2)
+                }
+            })
+            resolve(even)
+        }, 2000);
+    })
+}
+
+array([1,2,3,4]).then((res)=>{
+    document.getElementById("output").innerHTML=`Given Array is>>> ${res}`
+   // console.log(res)
+   return promise1(res)
+}).then((res2)=>{
+   // console.log(res2)
+   document.getElementById("output").innerHTML = `<h3>odd elements from the array are >>> ${res2}</h3>`
+   return promise2([1,2,3,4])
+}).then((res)=>{
+   // console.log(res)
+   document.getElementById("output").innerHTML=`<h3>Even elements after multiply by 2 from the array are >>> ${res}</h3>`
+
+   setTimeout(() => {
+    document.getElementById("output").innerHTML=""
+   }, 2000);
 })
