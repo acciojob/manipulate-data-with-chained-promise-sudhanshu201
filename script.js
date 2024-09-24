@@ -15,7 +15,7 @@ myPromise1.then((res)=>{
     }
     })
     //console.log(filter1)
-    document.getElementById('output').innerHTML= `Odd numbers are - ${filter1}`
+    document.getElementById('output').innerHTML= `Odd numbers are >>>  ${filter1}`
     }, 1000);
 
     setTimeout(() => {
@@ -26,8 +26,8 @@ myPromise1.then((res)=>{
             filter2.push(data*2)
         }
        })
-       document.getElementById('output').innerHTML = `even numbers after multiply by 2 - ${filter2}`
+       document.getElementById('output').innerHTML = `even numbers after multiply by 2 >>> ${filter2}`
       // console.log(filter2)
-    }, 2000);
+    }, 3000);
   
 })
