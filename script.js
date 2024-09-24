@@ -1,8 +1,6 @@
 function array(arr){
    return new Promise((resolve,reject)=>{
-        setTimeout(() => {
             resolve(arr)
-        }, 0);
     })
 }
 
