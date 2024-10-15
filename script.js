@@ -1,6 +1,6 @@
 
 function myPromise(arr){
-	returm new Promise((resolve,reject)=>{
+	return new Promise((resolve,reject)=>{
 		setTimeout(()=>{
 			resolve(arr)
 		},3000)
@@ -36,15 +36,20 @@ function even(arr){
 }
 
 let array = [1,2,3,4]
-let op = document.getElementById("output").innerHTML
+let output = document.getElementById("output")
 
 myPromise(array).then((res)=>{
+    console.log(res)
+    output.innerHTML = `<p> Original Array is : ${res}`
 	return filter(array)
+    
 }).then((res)=>{
-		op = res
+    console.log(res)
+		output.innerHTML += `<p>Odd numbers Are: ${res}`
 	return even(array)
 }).then((res)=>{
-	op = res
+    console.log(res)
+	output.innerHTML += `<p>Even Numbers are : ${res}`
 })
 
 
