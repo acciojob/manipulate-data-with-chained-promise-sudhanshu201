@@ -16,6 +16,7 @@ function filter(arr){
 				filteredNmbr.push(item)
 			}
 		})
+			resolve(filteredNmbr)
 		},1000)
 	})
 }
@@ -29,6 +30,7 @@ function even(arr){
 				evenTowTimes.push(item)
 			}
 		})
+			resolve(evenTowTimes)
 		},2000)
 	})
 }
