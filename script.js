@@ -27,7 +27,7 @@ function even(arr){
 			let evenTowTimes = []
 		arr.map((item)=>{
 			if(item%2==0){
-				evenTowTimes.push(item)
+				evenTowTimes.push(item*2)
 			}
 		})
 			resolve(evenTowTimes)
